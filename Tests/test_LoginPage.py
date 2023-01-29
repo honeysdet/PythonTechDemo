@@ -1,11 +1,10 @@
 import pytest
-
 from Config.Config import TestData
 from Pages.LoginPage import LoginPage
 from Tests.test_Base import BaseTest
 from Pages.DashBoardPage import DashBoardPage
 
-
+"""test for Login pages"""
 class Test_login(BaseTest):
     def test_login_page_title(self):
         self.LoginPage = LoginPage(self.driver)

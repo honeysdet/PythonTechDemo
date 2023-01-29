@@ -5,8 +5,11 @@ from Pages.LoginPage import LoginPage
 from Tests.test_Base import BaseTest
 from Pages.DashBoardPage import DashBoardPage
 
+"""test for PIM pages"""
+
 
 class Test_pim(BaseTest):
+    """test for add employee functionality"""
 
     def test_pim_page_tab_add_employee(self, input_data_for_add_user):
         self.LoginPage = LoginPage(self.driver)
@@ -20,7 +23,9 @@ class Test_pim(BaseTest):
         assert flag
         self.PimPage.validate_logout()
 
-    def test_pim_page_tab_search_employee(self,input_data_for_add_user):
+    """test for search employee functionality"""
+
+    def test_pim_page_tab_search_employee(self, input_data_for_add_user):
         self.LoginPage = LoginPage(self.driver)
         self.DashBoardPage = self.LoginPage.validate_login()
         self.PimPage = self.DashBoardPage.navigate_to_pim()
@@ -30,7 +35,9 @@ class Test_pim(BaseTest):
         assert flag
         self.PimPage.validate_logout()
 
-    def test_pim_page_tab_delete_employee(self,input_data_for_add_user):
+    """test for delete employee functionality"""
+
+    def test_pim_page_tab_delete_employee(self, input_data_for_add_user):
         self.LoginPage = LoginPage(self.driver)
         self.DashBoardPage = self.LoginPage.validate_login()
         self.PimPage = self.DashBoardPage.navigate_to_pim()

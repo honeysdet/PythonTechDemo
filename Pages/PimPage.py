@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
-
 from Pages.BasePage import BasePage
+
+"""this class contains web elements and action for PIM page"""
 
 
 class PimPage(BasePage):
@@ -27,9 +28,6 @@ class PimPage(BasePage):
     BTN_DELETE_EMP = (By.XPATH, "//i[@class='oxd-icon bi-trash']")
     BTN_DELETE_CONF = (By.XPATH, "// button[text() = ' Yes, Delete ']")
     TOAST_MSG_DELETE = (By.XPATH, "//p[text()='Successfully Deleted']")
-
-
-
     LOGOUT_LINK = (By.XPATH, " //i[contains(@class,'userdropdown-icon')]")
     LOGOUT_BTN = (By.XPATH, "//a[text()='Logout']")
 
@@ -54,32 +52,30 @@ class PimPage(BasePage):
     def do_click_employee_list(self):
         self.do_click(self.TAB_EMPLOYEE_lIST)
 
-    def input_data_for_adduser(self,fname,mname,lname,user_id,password):
-
-        #self.do_send_key(self.INPUT_NAME,"abc")
-        self.do_send_key(self.INPUT_NAME,fname)
-        self.do_send_key(self.INPUT_MID_NAME,mname)
-        self.do_send_key(self.INPUT_LAST_NAME,lname)
+    def input_data_for_adduser(self, fname, mname, lname, user_id, password):
+        # self.do_send_key(self.INPUT_NAME,"abc")
+        self.do_send_key(self.INPUT_NAME, fname)
+        self.do_send_key(self.INPUT_MID_NAME, mname)
+        self.do_send_key(self.INPUT_LAST_NAME, lname)
         self.do_click(self.FLG_LOGIN)
-       # self.do_javascript_click(self.FLG_LOGIN)
-        self.do_send_key(self.INPUT_USER_NAME,user_id)
-        self.do_send_key(self.INPUT_PASSWORD,password)
-        self.do_send_key(self.INPUT_CONF_PASSWORD,password)
+        # self.do_javascript_click(self.FLG_LOGIN)
+        self.do_send_key(self.INPUT_USER_NAME, user_id)
+        self.do_send_key(self.INPUT_PASSWORD, password)
+        self.do_send_key(self.INPUT_CONF_PASSWORD, password)
         self.do_click(self.BTN_CONF_SUBMIT)
         return self.is_visible(self.TOAST_MSG)
 
-    def do_search_new_employee(self,searchuser):
-        self.do_send_key(self.INPUT_SEARCH_EMP,searchuser)
+    def do_search_new_employee(self, searchuser):
+        self.do_send_key(self.INPUT_SEARCH_EMP, searchuser)
         self.do_click(self.BTN_SEARCH)
-        return self.is_visible((By.XPATH,"//div[starts-with(text(),'"+searchuser+"')]"))
+        return self.is_visible((By.XPATH, "//div[starts-with(text(),'" + searchuser + "')]"))
 
-    def do_search_delete_employee(self,searchuser):
+    def do_search_delete_employee(self, searchuser):
         self.do_send_key(self.INPUT_SEARCH_EMP, searchuser)
         self.do_click(self.BTN_SEARCH)
         self.do_click(self.BTN_DELETE_EMP)
         self.do_click(self.BTN_DELETE_CONF)
         return self.is_visible(self.TOAST_MSG_DELETE)
-
 
     def validate_logout(self):
         self.do_click(self.LOGOUT_LINK)
