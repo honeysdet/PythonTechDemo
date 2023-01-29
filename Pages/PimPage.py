@@ -54,26 +54,27 @@ class PimPage(BasePage):
     def do_click_employee_list(self):
         self.do_click(self.TAB_EMPLOYEE_lIST)
 
-    def input_data_for_adduser(self):
+    def input_data_for_adduser(self,fname,mname,lname,user_id,password):
 
-        self.do_send_key(self.INPUT_NAME,"abc")
-        self.do_send_key(self.INPUT_MID_NAME,"pqr")
-        self.do_send_key(self.INPUT_LAST_NAME,"xyz")
+        #self.do_send_key(self.INPUT_NAME,"abc")
+        self.do_send_key(self.INPUT_NAME,fname)
+        self.do_send_key(self.INPUT_MID_NAME,mname)
+        self.do_send_key(self.INPUT_LAST_NAME,lname)
         self.do_click(self.FLG_LOGIN)
        # self.do_javascript_click(self.FLG_LOGIN)
-        self.do_send_key(self.INPUT_USER_NAME, "abc123438")
-        self.do_send_key(self.INPUT_PASSWORD, "Abc@1234567")
-        self.do_send_key(self.INPUT_CONF_PASSWORD, "Abc@1234567")
+        self.do_send_key(self.INPUT_USER_NAME,user_id)
+        self.do_send_key(self.INPUT_PASSWORD,password)
+        self.do_send_key(self.INPUT_CONF_PASSWORD,password)
         self.do_click(self.BTN_CONF_SUBMIT)
         return self.is_visible(self.TOAST_MSG)
 
-    def do_search_new_employee(self):
-        self.do_send_key(self.INPUT_SEARCH_EMP, "abc pqr")
+    def do_search_new_employee(self,searchuser):
+        self.do_send_key(self.INPUT_SEARCH_EMP,searchuser)
         self.do_click(self.BTN_SEARCH)
-        return self.is_visible(self.LIST_EMPLOYEE)
+        return self.is_visible((By.XPATH,"//div[starts-with(text(),'"+searchuser+"')]"))
 
-    def do_search_delete_employee(self):
-        self.do_send_key(self.INPUT_SEARCH_EMP, "abc pqr")
+    def do_search_delete_employee(self,searchuser):
+        self.do_send_key(self.INPUT_SEARCH_EMP, searchuser)
         self.do_click(self.BTN_SEARCH)
         self.do_click(self.BTN_DELETE_EMP)
         self.do_click(self.BTN_DELETE_CONF)
