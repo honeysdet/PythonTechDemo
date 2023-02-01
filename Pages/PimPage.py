@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from Pages.BasePage import BasePage
-
+from datetime import datetime
 """this class contains web elements and action for PIM page"""
 
 
@@ -59,7 +59,7 @@ class PimPage(BasePage):
         self.do_send_key(self.INPUT_LAST_NAME, lname)
         self.do_click(self.FLG_LOGIN)
         # self.do_javascript_click(self.FLG_LOGIN)
-        self.do_send_key(self.INPUT_USER_NAME, user_id)
+        self.do_send_key(self.INPUT_USER_NAME, user_id+datetime.now().strftime("%H:%M:%S"))
         self.do_send_key(self.INPUT_PASSWORD, password)
         self.do_send_key(self.INPUT_CONF_PASSWORD, password)
         self.do_click(self.BTN_CONF_SUBMIT)

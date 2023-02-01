@@ -46,3 +46,5 @@ class Test_pim(BaseTest):
         flag = self.PimPage.do_search_delete_employee(input_data_for_add_user[5])
         assert flag
         self.PimPage.validate_logout()
+
+
