@@ -6,7 +6,10 @@ Organge HRM automation using selenium python
 
 [Documentation](https://linktodocumentation)
 
-this is a smoke suite for PIM module frame work designed in page object model design .using below tools
+this is a smoke suite for PIM module frame work designed in page object model design 
+
+tools
+
 python 3.11.1,
 selenium,
 pytest,
