@@ -6,7 +6,9 @@ Organge HRM automation using selenium python
 
 [Documentation](https://linktodocumentation)
 
-this is a smoke suite for PIM module frame work designed in page object model design 
+this is a smoke suite for PIM module in Orange HRM 
+
+frame work designed in page object model design with multi browser support
 
 tools
 
